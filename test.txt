@@ -1,2 +1,6 @@
 file test.txt 
+<<<<<<< HEAD
 file test.txt branch test_merge va main 
+=======
+file test.txt branch test_merge ma thoi 
+>>>>>>> test_merge
