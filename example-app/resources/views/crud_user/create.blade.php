@@ -23,6 +23,22 @@
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">
+                                    <label>Email</label>
+                                    <input type="text" placeholder="Phone" id="phone" class="form-control"
+                                           name="phone" required autofocus>
+                                    @if ($errors->has('phone'))
+                                        <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label>Email</label>
+                                    <input type="text" placeholder="Address" id="address" class="form-control"
+                                           name="address" required autofocus>
+                                    @if ($errors->has('address'))
+                                        <span class="text-danger">{{ $errors->first('address') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group mb-3">
                                     <label>Password</label>
                                     <input type="password" placeholder="Password" id="password" class="form-control"
                                            name="password" required>

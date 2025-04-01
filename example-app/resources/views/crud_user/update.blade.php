@@ -18,11 +18,29 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="username">Email</label>
-                                    <input type="text" placeholder="Email" id="email_address" class="form-control"
+                                    <input type="text" placeholder="Email" class="form-control"
                                            value="{{ $user->email }}"
                                            name="email" required autofocus>
                                     @if ($errors->has('email'))
                                         <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Phone</label>
+                                    <input type="text" placeholder="Phone" class="form-control"
+                                           value="{{ $user->phone }}"
+                                           name="phone" required autofocus>
+                                    @if ($errors->has('phone'))
+                                        <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Address</label>
+                                    <input type="text" placeholder="Address" class="form-control"
+                                           value="{{ $user->address }}"
+                                           name="address" required autofocus>
+                                    @if ($errors->has('address'))
+                                        <span class="text-danger">{{ $errors->first('address') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-group">
