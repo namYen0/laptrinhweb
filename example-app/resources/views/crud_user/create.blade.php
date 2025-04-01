@@ -31,7 +31,7 @@
                                     @endif
                                 </div>
                                 <div class="form-actions">
-                                    <a href="{{ route('login') }}" >Đã có tài khoản?</a>
+                                    <a href="{{ route('login') }}" class="login-link">Đã có tài khoản?</a>
                                     <button type="submit" class="btn btn-dark btn-block">Submit</button>
                     </div>
             </form>

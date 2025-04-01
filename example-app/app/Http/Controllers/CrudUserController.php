@@ -129,11 +129,6 @@ class CrudUserController extends Controller
      */
     public function listUser()
     {
-//        $users = [
-//                'users' => User::all()
-//        ];
-//        return view('crud_user.ronaldo', $users);
-
         if(Auth::check()){
             $users = User::all();
             return view('crud_user.list', ['users' => $users]);
