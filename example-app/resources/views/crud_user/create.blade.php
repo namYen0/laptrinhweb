@@ -14,6 +14,23 @@
                                         <span class="text-danger">{{ $errors->first('name') }}</span>
                                     @endif
                                 </div>
+                                
+                                <div class="form-group mb-3">
+                                    <label>like</label>
+                                    <input type="text" placeholder="Name" id="like" class="form-control" name="like"
+                                           required autofocus>
+                                    @if ($errors->has('like'))
+                                        <span class="text-danger">{{ $errors->first('like') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label>github</label>
+                                    <input type="text" placeholder="Name" id="github" class="form-control" name="github"
+                                           required autofocus>
+                                    @if ($errors->has('github'))
+                                        <span class="text-danger">{{ $errors->first('github') }}</span>
+                                    @endif
+                                </div>
                                 <div class="form-group mb-3">
                                     <label>Email</label>
                                     <input type="text" placeholder="Email" id="email" class="form-control"

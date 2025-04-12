@@ -13,6 +13,14 @@
                     <label class="label1">Email:</label>
                     <label class="elabel1">{{$user->email}}</label>
                 </div>
+                <div class="form-group2">
+                    <label class="label1">Like:</label>
+                    <label class="elabel1">{{$user->like}}</label>
+                </div>
+                <div class="form-group2">
+                    <label class="label1">github:</label>
+                    <label class="elabel1">{{$user->github}}</label>
+                </div>
                 <div class="form-actions">
                     <button class="btn-huy" type="button" onclick="window.history.back();">Trở về</button>
                     <button type="button" onclick="window.location.href='{{ route('user.updateUser', ['id' => $user->id]) }}'">Chỉnh sửa</button>         

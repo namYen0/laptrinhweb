@@ -17,6 +17,24 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
+                                    <label for="username">like</label>
+                                    <input type="text" placeholder="like" class="form-control" name="like"
+                                           value="{{ $user->like }}"
+                                           required autofocus>
+                                    @if ($errors->has('like'))
+                                        <span class="text-danger">{{ $errors->first('like') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">github</label>
+                                    <input type="text" placeholder="github" class="form-control" name="github"
+                                           value="{{ $user->github }}"
+                                           required autofocus>
+                                    @if ($errors->has('github'))
+                                        <span class="text-danger">{{ $errors->first('github') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group">
                                     <label for="username">Email</label>
                                     <input type="text" placeholder="Email" id="email_address" class="form-control"
                                            value="{{ $user->email }}"
