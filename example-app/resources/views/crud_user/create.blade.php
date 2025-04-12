@@ -17,15 +17,15 @@
                                 
                                 <div class="form-group mb-3">
                                     <label>like</label>
-                                    <input type="text" placeholder="Name" id="like" class="form-control" name="like"
+                                    <input type="text" placeholder="like" id="like" class="form-control" name="like"
                                            required autofocus>
                                     @if ($errors->has('like'))
                                         <span class="text-danger">{{ $errors->first('like') }}</span>
                                     @endif
-                                </div>
+                                </div>                        
                                 <div class="form-group mb-3">
                                     <label>github</label>
-                                    <input type="text" placeholder="Name" id="github" class="form-control" name="github"
+                                    <input type="text" placeholder="github" id="github" class="form-control" name="github"
                                            required autofocus>
                                     @if ($errors->has('github'))
                                         <span class="text-danger">{{ $errors->first('github') }}</span>
