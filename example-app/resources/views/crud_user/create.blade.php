@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="form-actions">
                                     <a href="{{ route('login') }}" class="login-link">Đã có tài khoản?</a>
-                                    <button type="submit" class="btn btn-dark btn-block">Submit</button>
+                                    <button type="submit" class="btn btn-dark btn-block">Đăng ký</button>
                     </div>
             </form>
         </div>
