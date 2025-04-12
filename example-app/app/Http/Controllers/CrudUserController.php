@@ -61,7 +61,14 @@ class CrudUserController extends Controller
             'github' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+        $imageName = null;
+
+        if ($request->hasFile('avatar')) {
+            $imageName = time() . '.' . $request->avatar->extension();
+            $request->avatar->move(public_path('upload_avatar'), $imageName);
+        }
 
         $data = $request->all();
         $check = User::create([
@@ -69,6 +76,7 @@ class CrudUserController extends Controller
             'email' => $data['email'],
             'like' => $data['like'],
             'github' => $data['github'],
+            'avatar' => $imageName ?? null,
             'password' => Hash::make($data['password'])
         ]);
 
@@ -119,15 +127,23 @@ class CrudUserController extends Controller
             'name' => 'required',
             'like' => 'required',
             'github' => 'required',
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'email' => 'required|email|unique:users,id,' . $input['id'],
             'password' => 'required|min:6',
         ]);
 
+        // cho avatar
+        if ($request->hasFile('avatar')) {
+            $imageName = time() . '.' . $request->avatar->extension();
+            $request->avatar->move(public_path('upload_avatar'), $imageName);
+            $user->avatar = $imageName;
+        }
+
         $user = User::find($input['id']);
         $user->name = $input['name'];
         $user->email = $input['email'];
-        $user->name = $input['like'];
-        $user->email = $input['github'];
+        $user->like = $input['like'];
+        $user->github = $input['github'];
         $user->password = Hash::make($input['password']);
         $user->save();
 

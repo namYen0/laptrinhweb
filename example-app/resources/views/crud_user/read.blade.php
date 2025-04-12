@@ -21,6 +21,15 @@
                     <label class="label1">github:</label>
                     <label class="elabel1">{{$user->github}}</label>
                 </div>
+                <div class="form-group2">
+                    <label class="label1">Avatar:</label>
+                    @if ($user->avatar)
+                        <img src="{{ asset('upload_avatar/' . $user->avatar) }}" alt="Avatar" width="100" height="100" style="object-fit: cover; margin-left: 10px;">
+                    @else
+                        <label class="elabel1">Không có ảnh</label>
+                    @endif
+                </div>
+                
                 <div class="form-actions">
                     <button class="btn-huy" type="button" onclick="window.history.back();">Trở về</button>
                     <button type="button" onclick="window.location.href='{{ route('user.updateUser', ['id' => $user->id]) }}'">Chỉnh sửa</button>         

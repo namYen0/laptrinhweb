@@ -4,7 +4,7 @@
     <main class="signup-form">
         <div class="form-container">
             <h2>Màn hình đăng ký</h2>
-            <form action="{{ route('user.postUser') }}" method="POST">
+            <form action="{{ route('user.postUser') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group mb-3">
                                     <label>UserName</label>
@@ -37,6 +37,13 @@
                                            name="email" required autofocus>
                                     @if ($errors->has('email'))
                                         <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label>Ảnh đại diện</label>
+                                    <input type="file" id="avatar" class="form-control" name="avatar" accept="image/*" required>
+                                    @if ($errors->has('avatar'))
+                                        <span class="text-danger">{{ $errors->first('avatar') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">

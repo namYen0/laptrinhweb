@@ -12,6 +12,7 @@
                             <th>Email</th>
                             <th>Like</th>
                             <th>Github</th>
+                            <th>Avatar</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -23,6 +24,14 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->like }}</td>
                                 <td>{{ $user->github }}</td>
+                                <td>
+                                    @if ($user->avatar)
+                                        <img src="{{ asset('upload_avatar/' . $user->avatar) }}" alt="Avatar" width="50" height="50" style="object-fit: cover;">
+                                    @else
+                                        <span>Không có ảnh</span>
+                                    @endif
+                                </td>
+                                
 
                                 <td>
                                     <a href="{{ route('user.readUser', ['id' => $user->id]) }}">View</a> |

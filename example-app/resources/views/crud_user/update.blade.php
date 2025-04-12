@@ -4,7 +4,7 @@
     <main class="signup-form">
         <div class="form-container">
             <h2>Màn hình cập nhật</h2>
-                            <form action="{{ route('user.postUpdateUser') }}" method="POST">
+            <form action="{{ route('user.postUpdateUser') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input name="id" type="hidden" value="{{$user->id}}">
                                 <div class="form-group">
@@ -43,6 +43,23 @@
                                         <span class="text-danger">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
+                                <div class="form-group">
+                                    <label>Ảnh đại diện hiện tại</label><br>
+                                    @if ($user->avatar)
+                                        <img src="{{ asset('upload_avatar/' . $user->avatar) }}" alt="Avatar" width="100" height="100" style="object-fit: cover; border-radius: 50%;">
+                                    @else
+                                        <p>Không có ảnh</p>
+                                    @endif
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Chọn ảnh mới</label>
+                                    <input type="file" name="avatar" class="form-control" accept="image/*">
+                                    @if ($errors->has('avatar'))
+                                        <span class="text-danger">{{ $errors->first('avatar') }}</span>
+                                    @endif
+                                </div>
+                                
                                 <div class="form-group">
                                     <label for="username">Password</label>
                                     <input type="password" placeholder="Password" id="password" class="form-control"
