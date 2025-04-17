@@ -132,14 +132,20 @@ class CrudUserController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        // cho avatar
+        // Tìm user trước
+        $user = User::find($input['id']);
+        if (!$user) {
+            return redirect()->back()->withErrors(['error' => 'User not found']);
+        }
+
+        // Cập nhật avatar nếu có file mới
         if ($request->hasFile('avatar')) {
             $imageName = time() . '.' . $request->avatar->extension();
             $request->avatar->move(public_path('upload_avatar'), $imageName);
             $user->avatar = $imageName;
         }
 
-        $user = User::find($input['id']);
+
         $user->name = $input['name'];
         $user->email = $input['email'];
         $user->like = $input['like'];
