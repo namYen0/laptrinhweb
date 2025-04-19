@@ -22,6 +22,9 @@
 
     @yield('content')
 
+
+    <br>
+    <br>
     <footer>
         <p>&copy; 2025 Website. Tất cả quyền lợi được bảo lưu.</p>
     </footer>
