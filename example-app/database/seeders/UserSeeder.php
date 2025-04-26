@@ -10,14 +10,15 @@ use Illuminate\Support\Str;
 class UserSeeder extends Seeder
 {
     const MAX_RECORDS = 100;
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
-        //Truncate table
+        // Tắt kiểm tra khóa ngoại
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('users')->truncate();
-        //Insert data
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+        // Insert dữ liệu
         DB::table('users')->insert([
             [
                 'name' => 'admin',

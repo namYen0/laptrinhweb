@@ -11,6 +11,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Roles</th>
+                            <th>Orders</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -27,6 +28,9 @@
                                         </a>
                                     @endforeach
                                 </th>
+                                <th>
+                                    <a href="{{ route('user.orders', ['id' => $user->id]) }}">View Orders</a>
+                                </th>                                
                                 <th>
                                     <a href="{{ route('user.readUser', ['id' => $user->id]) }}">View</a> |
                                     <a href="{{ route('user.updateUser', ['id' => $user->id]) }}">Edit</a> |

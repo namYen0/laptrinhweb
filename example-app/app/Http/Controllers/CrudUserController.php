@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Hash;
 use Session;
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -139,10 +140,8 @@ class CrudUserController extends Controller
 
             return view('crud_user.list', ['users' => $users]);
         }
-
         return redirect("login")->withSuccess('You are not allowed to access');
     }
-
 
     /**
      * Sign out
@@ -153,5 +152,14 @@ class CrudUserController extends Controller
         Auth::logout();
 
         return Redirect('login');
+    }
+
+
+    public function userOrders(Request $request)
+    {
+        $user_id = $request->get('id');
+        $orders = Order::where('user_id', $user_id)->with('orderDetails.product')->get();
+
+        return view('crud_user.orders', ['orders' => $orders]);
     }
 }
