@@ -6,7 +6,7 @@
         <h2>Danh sách Orders</h2>
 
         @foreach($orders as $order)
-            <h3>Order #{{ $order->id }} - Address: {{ $order->address }} - Total: {{ $order->total_amount }}</h3>
+            <h3>Mã{{ $order->id }} - Address: {{ $order->address }} - Total: {{ $order->total_amount }}</h3>
             <table>
                 <thead>
                     <tr>

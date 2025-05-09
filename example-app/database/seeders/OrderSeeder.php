@@ -12,24 +12,26 @@ class OrderSeeder extends Seeder
 {
     public function run()
     {
-        $user = User::first();
+        $users = User::take(10)->get();
         $product = Product::first();
 
         // THÊM ĐIỀU KIỆN KIỂM TRA
-        if ($user && $product) {
+        foreach ($users as $user) {
             $order = Order::create([
                 'user_id' => $user->id,
                 'total_amount' => $product->price * 2,
-                'address' => '123 Street ABC',
+                'address' => 'Địa chỉ của user ' . $user->id,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
 
             OrderDetail::create([
                 'order_id' => $order->id,
                 'product_id' => $product->id,
                 'quantity' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
-        } else {
-            echo "\n❗ Không có user hoặc product để tạo order!\n";
         }
     }
 }
